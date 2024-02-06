@@ -7,6 +7,8 @@ HTTPS: Replace fields in Caddyfile then run `caddy run` and point your web brows
 
 HTTP: `caddy file-server --listen :80 --root /path/to/your/directory`
 
+High performance file listing with HTTP/1.1 `dufs --port 80 --render-index`
+
 Note: HTTP seems to be slower than HTTPS in some browsers.
 
 ## Notable tests (20 sample)
