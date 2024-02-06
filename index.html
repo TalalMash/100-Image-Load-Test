@@ -52,9 +52,10 @@
             var imageContainer = document.getElementById('imageContainer');
             var numImagesLoaded = 0;
             var startTime = new Date().getTime();
+            var currentURL = window.location.href;
             function createImage(index) {
                 setTimeout(function () {
-                    var imageURL = "/img/" + folder + "/pic-item-" + index + ".jpg?" + Math.random();
+                    var imageURL = currentURL + "/img/" + folder + "/pic-item-" + index + ".jpg?" + Math.random();
                     var imageDiv = document.createElement('div');
                     imageDiv.className = 'image';
 
