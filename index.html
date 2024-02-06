@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Sequential Image Loading</title>
     <style type="text/css">
@@ -30,44 +31,53 @@
             height: auto;
         }
 
-        #counter {
+        #counter,
+        #counter2 {
             text-align: center;
             margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
+    <div>Image: 64KB then 12.5MB</div>
     <div class="image-container" id="imageContainer"></div>
 
     <div id="counter"></div>
+    <div id="counter2"></div>
 
     <script>
-        function createImages() {
+        var done = 0;
+        function createImages(folder = "Low_Quality") {
             var imageContainer = document.getElementById('imageContainer');
-            var numImagesLoaded = 0; 
-            var startTime = new Date().getTime(); 
+            var numImagesLoaded = 0;
+            var startTime = new Date().getTime();
             function createImage(index) {
-                setTimeout(function() {
-                    var imageURL = "/img/pic-item-" + index + ".jpg?" + Math.random(); 
+                setTimeout(function () {
+                    var imageURL = "/img/" + folder + "/pic-item-" + index + ".jpg?" + Math.random();
                     var imageDiv = document.createElement('div');
                     imageDiv.className = 'image';
 
                     var img = document.createElement('img');
-                    img.onload = function() {
-                        numImagesLoaded++; 
-
-                        // Check if all images are loaded
+                    img.onload = function () {
+                        numImagesLoaded++;
                         if (numImagesLoaded === 100) {
                             var endTime = new Date().getTime();
-                            var elapsedTime = (endTime - startTime) / 1000; 
-                            document.getElementById('counter').innerText = 'Photo loading finished in ' + elapsedTime + ' seconds.';
+                            var elapsedTime = (endTime - startTime) / 1000;
+                            if (!done) {
+                                document.getElementById('counter').innerText = folder + ' photo loading finished in ' + elapsedTime + ' seconds.'; createImages2();
+                                done = true;
+                            }
+                            else {
+                                document.getElementById('counter2').innerText = folder + ' photo loading finished in ' + elapsedTime + ' seconds.';
+                            }
                         }
                     };
                     img.src = imageURL;
 
                     imageDiv.appendChild(img);
                     imageContainer.appendChild(imageDiv);
-                }, index * 1); 
+                }, index * 1);
             }
 
             for (var i = 0; i < 100; i++) {
@@ -75,9 +85,12 @@
             }
         }
 
-        window.onload = function() {
+        function createImages2() { createImages("High_Quality"); }
+
+        window.onload = function () {
             createImages();
         };
     </script>
 </body>
+
 </html>
