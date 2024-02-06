@@ -9,6 +9,12 @@ HTTP: `caddy file-server --listen :80 --root /path/to/your/directory`
 
 Note: HTTP seems to be slower than HTTPS in some browsers.
 
+## Notable tests (20 sample)
+
+- SQM cake + layer_cake vs NONE at 60ms 100Mbit fiber: 1.3 seconds vs 0.3 seconds
+
+- Safari vs Chrome vs Firefox: 0.5 seconds vs 0.3 seconds vs 1.6 seconds
+
 ## Credits
 - Source of original photo: https://www.pexels.com/photo/beautiful-botanical-coffee-decoration-374757/
 
