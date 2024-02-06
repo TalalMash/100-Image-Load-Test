@@ -14,6 +14,8 @@ Note: HTTP seems to be slower than HTTPS in some browsers.
 |Test                                               |Results                    |
 |---------------------------------------------------|----------------------------|
 |SQM cake + layer_cake vs NONE (60ms 100Mbit fiber - Chrome)| 1.3 - 0.3 seconds|
+|SQM cake + layer_cake vs NONE (60ms 100Mbit fiber - Safari)| 3 - 0.6 seconds|
+|SQM cake + layer_cake vs NONE (60ms 100Mbit fiber - Firefox)| 1.5 - 1.5 seconds|
 |60ms 100Mbit + Safari vs Chrome vs Firefox|0.5 - 0.4 - 1.5 seconds|
 |Localhost test + Safari vs Chrome vs Firefox|0.2 - 0.3 - 0.1 seconds|
 
