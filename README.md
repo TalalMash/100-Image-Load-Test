@@ -19,6 +19,8 @@ Note: HTTP seems to be slower than HTTPS in some browsers.
 |60ms 100Mbit + Safari vs Chrome vs Firefox|0.5 - 0.4 - 1.5 seconds|
 |Localhost test + Safari vs Chrome vs Firefox|0.2 - 0.3 - 0.1 seconds|
 
+Safari on macOS, Chrome and Firefox on Windows.
+
 ## Credits
 - Source of original photo: https://www.pexels.com/photo/beautiful-botanical-coffee-decoration-374757/
 
