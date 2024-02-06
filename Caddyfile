@@ -1,0 +1,8 @@
+{
+        email YOUR_EMAIL
+}
+
+YOUR_DOMAIN_NAME {
+root * YOUR_FOLDER_DIRECTORY
+file_server
+}

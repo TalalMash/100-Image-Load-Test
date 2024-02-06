@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sequential Image Loading</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-container {
+            width: 600px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+
+        .image-row {
+            clear: both;
+        }
+
+        .image {
+            display: inline-block;
+            width: calc(100% / 10);
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        #counter {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container" id="imageContainer"></div>
+
+    <div id="counter"></div>
+
+    <script>
+        function createImages() {
+            var imageContainer = document.getElementById('imageContainer');
+            var numImagesLoaded = 0; 
+            var startTime = new Date().getTime(); 
+            function createImage(index) {
+                setTimeout(function() {
+                    var imageURL = "/img/pic-item-" + index + ".jpg?" + Math.random(); 
+                    var imageDiv = document.createElement('div');
+                    imageDiv.className = 'image';
+
+                    var img = document.createElement('img');
+                    img.onload = function() {
+                        numImagesLoaded++; 
+
+                        // Check if all images are loaded
+                        if (numImagesLoaded === 100) {
+                            var endTime = new Date().getTime();
+                            var elapsedTime = (endTime - startTime) / 1000; 
+                            document.getElementById('counter').innerText = 'Photo loading finished in ' + elapsedTime + ' seconds.';
+                        }
+                    };
+                    img.src = imageURL;
+
+                    imageDiv.appendChild(img);
+                    imageContainer.appendChild(imageDiv);
+                }, index * 1); 
+            }
+
+            for (var i = 0; i < 100; i++) {
+                createImage(i);
+            }
+        }
+
+        window.onload = function() {
+            createImages();
+        };
+    </script>
+</body>
+</html>
