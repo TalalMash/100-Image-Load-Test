@@ -13,6 +13,8 @@ Note: HTTP seems to be slower than HTTPS in some browsers.
 
 ## Notable tests (20 sample)
 
+High Quality
+
 |Test                                               |Results                    |
 |---------------------------------------------------|----------------------------|
 |SQM cake + layer_cake vs NONE (60ms 100Mbit fiber - Chrome)| 1.3 - 0.3 seconds|
